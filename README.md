@@ -6,3 +6,9 @@ A nice RC car with overkill BLDC motors and two VESCs
 - KEDA 63-64 190KV 2kW x 2
 - 2P2S N.E.S.E module x 2
 - Samsung 25E á 20A x 8
+- FrSky transmitter
+- RF Reciever
+
+## Software
+- VESC Tool v0.95 
+
