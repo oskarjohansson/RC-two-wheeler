@@ -13,8 +13,8 @@
 
 
 // Choose which to compile for 
-#define reciever
-//#define transmitter 
+//#define reciever
+#define transmitter 
 
 
 /**
@@ -51,12 +51,11 @@ message_t analog;
  */
 Servo lWheel, rWheel;
 
-#define NOSPEED 90
-#define DEFAULTSPEED 20
-#define MAXSPEED 45
-#define MAXTURN 20
-#define MAX_TIMEOUT 500 
-#define TURNSPEED 20
+#define NOSPEED 90            // In servo degree
+#define DEFAULTSPEED 20       // In servo degree
+#define MAXSPEED 45           // In servo degree
+#define MAXTURN 20            // In servo degree 
+#define MAX_TIMEOUT 500       // in ms
 
 void writeToWheels(int throttle, int turn) {
   // 0 is max, 90 is still, 180 max reverse
@@ -74,12 +73,10 @@ void writeToWheels(int throttle, int turn) {
   if((millis() - lasttime)< MAX_TIMEOUT) {
     lWheel.write(throttle+turn); 
     rWheel.write(throttle-turn);
-    digitalWrite(LED_BUILTIN, HIGH);
   }
   else {
       lWheel.write(NOSPEED);
       rWheel.write(NOSPEED);
-      digitalWrite(LED_BUILTIN, LOW);
   }
 }
 void writeToRadio() {
@@ -99,7 +96,7 @@ void writeOutput() {
 void readInput() {
   #ifdef transmitter 
     // Read the analog input with a simple LP filter
-    analog.throttle = (analog.throttle analogRead(throttlePin))/2;
+    analog.throttle = (analog.throttle + analogRead(throttlePin))/2;
     analog.turn = (analog.turn + analogRead(turnPin))/2;
   #else
     if(radio.available()) {
