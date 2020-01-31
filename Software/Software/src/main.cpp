@@ -14,7 +14,7 @@
 
 // Choose which to compile for 
 #define reciever
-#define transmitter 
+//#define transmitter 
 #define DEBUG
 
 /**
@@ -84,7 +84,8 @@ void writeToWheels(int throttle, int turn) {
     turn = MAXTURN;
   else if (turn > MAXTURN+90)
     turn = MAXTURN + 90; 
-    
+  // 
+  turn -= 90; 
   // To check if it wasn't to long ago the input was recieved 
   if((millis() - lasttime)< MAX_TIMEOUT) {
     lSpeed = throttle+turn/2; 
@@ -97,7 +98,7 @@ void writeToWheels(int throttle, int turn) {
   
   #ifdef DEBUG
       Serial.print("Input throttle: "); Serial.print(throttle); Serial.print("\t input turn: "); Serial.println(turn);
-      Serial.print("\t Left output: "); Serial.print(lSpeed); Serial.print("\t Right output: "); Serial.println(rSpeed);
+      Serial.print("Left output: "); Serial.print(lSpeed); Serial.print("\t \t Right output: "); Serial.println(rSpeed);
   #endif 
 }
 
@@ -178,9 +179,13 @@ bool setupTransmitter() {
   turnComp = 512 - analogRead(turnPin);
   
   // Start the nRF 
-  radio.begin(); 
+  if(radio.begin()) {
+    #ifdef DEBUG
+      Serial.println("Radio has begun!");
+    #endif
+  } 
   radio.openWritingPipe(address);
-  //radio.setPALevel(RF24_PA_MAX); 
+  radio.setPALevel(RF24_PA_MAX); 
   radio.setRetries(3,5); // delay, count
   radio.setDataRate(RF24_250KBPS);
   //radio.stopListening();
