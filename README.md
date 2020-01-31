@@ -9,7 +9,7 @@ A nice RC car with overkill BLDC motors and two VESCs
 - 3S 60C 4000 mAh Turnigy Heavy duty LiPo
 - Joystick 
 - ~~2P2S N.E.S.E module x 2~~
-- ~~Samsung 25E á 20A x 8 ~~
+- ~~Samsung 25E á 20A x 8~~
 - ~~FrSky transmitter~~
 - ~~RF Reciever~~
 
