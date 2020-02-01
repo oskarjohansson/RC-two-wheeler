@@ -13,6 +13,14 @@ A nice RC car with overkill BLDC motors and two VESCs
 - ~~FrSky transmitter~~
 - ~~RF Reciever~~
 
+### PCB
+- PWM/5V/GND in
+- Nano
+- nRF24 
+- ON/OFF
+- Battery
+- Joystick  
+
 ## Software
 - VESC Tool v0.95. 
 - VSCode project for Nano. 
