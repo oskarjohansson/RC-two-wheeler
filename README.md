@@ -1,5 +1,5 @@
-# RC-two-wheeler
-A nice RC car with overkill BLDC motors and two VESCs 
+# RC two wheeler
+A 4 kW RC car with overkill BLDC motors and two VESCs and a 5 kW LiPo.  
 
 ## Hardware
 - Flipsky VESC v4.12 x 2
@@ -12,6 +12,8 @@ A nice RC car with overkill BLDC motors and two VESCs
 - ~~Samsung 25E á 20A x 8~~
 - ~~FrSky transmitter~~
 - ~~RF Reciever~~
+
+![PCB in 3D](KiCAD/Drawings/pcb-3d.PNG "Rev 1 2020-02-09")
 
 ### PCB
 - PWM/5V/GND in
